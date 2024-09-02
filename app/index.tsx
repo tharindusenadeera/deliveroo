@@ -1,15 +1,12 @@
-import { Text, View } from "react-native";
+import { Text, View } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+import React from 'react';
 
 export default function Index() {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
+    <View className="text-red-500">
+      <Text>Tharindu</Text>
+      <StatusBar style="auto" />
     </View>
   );
 }
