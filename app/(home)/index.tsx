@@ -1,7 +1,12 @@
-import { Text, View, SafeAreaView, Image } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { Link } from 'expo-router';
-import { ChevronDownIcon, UserIcon } from 'react-native-heroicons/outline';
+import {
+  AdjustmentsVerticalIcon,
+  ChevronDownIcon,
+  MagnifyingGlassIcon,
+  UserIcon,
+} from 'react-native-heroicons/outline';
 
 export default function HomeScreen() {
   return (
@@ -23,6 +28,15 @@ export default function HomeScreen() {
           </Text>
         </View>
         <UserIcon size={35} color="#00CCBB" />
+      </View>
+
+      {/* Search */}
+      <View className="flex-row items-center space-x-2 pb-2 mx-4">
+        <View className="flex-row flex-1 space-x-2 bg-gray-200 p-3">
+          <MagnifyingGlassIcon size={20} color={'gray'} />
+          <TextInput placeholder="Restaurants and Cuisines" keyboardType="default" />
+        </View>
+        <AdjustmentsVerticalIcon color="#00CCBB" />
       </View>
     </SafeAreaView>
   );
