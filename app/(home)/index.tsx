@@ -1,4 +1,4 @@
-import { Text, View, SafeAreaView, Image, TextInput } from 'react-native';
+import { Text, View, SafeAreaView, Image, TextInput, ScrollView } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { Link } from 'expo-router';
 import {
@@ -7,6 +7,7 @@ import {
   MagnifyingGlassIcon,
   UserIcon,
 } from 'react-native-heroicons/outline';
+import Category from '@/components/home/Category';
 
 export default function HomeScreen() {
   return (
@@ -38,6 +39,14 @@ export default function HomeScreen() {
         </View>
         <AdjustmentsVerticalIcon color="#00CCBB" />
       </View>
+
+      {/* Body */}
+      <ScrollView>
+        {/* Categories */}
+        <Category />
+
+        {/* Features */}
+      </ScrollView>
     </SafeAreaView>
   );
 }
