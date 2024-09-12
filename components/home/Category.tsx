@@ -11,10 +11,10 @@ const Category = () => {
         paddingTop: 10,
       }}
     >
-      <CategoryCard />
-      <CategoryCard />
-      <CategoryCard />
-      <CategoryCard />
+      <CategoryCard imgUrl="http://links.papareact.com/gn7" title="Title 1" />
+      <CategoryCard imgUrl="http://links.papareact.com/gn7" title="Title 1" />
+      <CategoryCard imgUrl="http://links.papareact.com/gn7" title="Title 1" />
+      <CategoryCard imgUrl="http://links.papareact.com/gn7" title="Title 1" />
     </ScrollView>
   );
 };
