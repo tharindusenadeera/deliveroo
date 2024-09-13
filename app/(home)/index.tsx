@@ -8,6 +8,25 @@ import {
   UserIcon,
 } from 'react-native-heroicons/outline';
 import Category from '@/components/home/Category';
+import FeaturedRow from '@/components/home/FeaturedRow';
+
+const featuresArr = [
+  {
+    id: 1,
+    title: 'Featured',
+    description: 'Paid placements from our partners',
+  },
+  {
+    id: 2,
+    title: 'Tasty Discounts',
+    description: "Everyone's been enjoying these juicy discounts!",
+  },
+  {
+    id: 3,
+    title: 'Offers near you',
+    description: 'Why not support your local restaurant tonight',
+  },
+];
 
 export default function HomeScreen() {
   return (
@@ -46,6 +65,9 @@ export default function HomeScreen() {
         <Category />
 
         {/* Features */}
+        {featuresArr?.map((item: any, key: any) => {
+          return <FeaturedRow id={item?.id} title={item?.title} description={item?.description} />;
+        })}
       </ScrollView>
     </SafeAreaView>
   );
