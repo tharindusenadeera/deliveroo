@@ -60,13 +60,13 @@ export default function HomeScreen() {
       </View>
 
       {/* Body */}
-      <ScrollView>
+      <ScrollView className="bg-gray-100">
         {/* Categories */}
         <Category />
 
         {/* Features */}
         {featuresArr?.map((item: any, key: any) => {
-          return <FeaturedRow id={item?.id} title={item?.title} description={item?.description} />;
+          return <FeaturedRow id={item?.id} title={item?.title} description={item?.description} key={key} />;
         })}
       </ScrollView>
     </SafeAreaView>
