@@ -12,12 +12,12 @@ interface FeaturedRowProps {
 const restaurantArr = [
   {
     id: 1,
-    imgUrl: 'http://links.papareact.com/wru',
+    imgUrl: 'http://links.papareact.com/gn7',
     title: 'Restaurant 1',
     rating: 4.5,
     genre: 'Thai',
     address: 'Address 1',
-    short_description: 'Short description',
+    shortDescription: 'Short description',
     dishes: [],
     long: null,
     lat: null,
@@ -42,7 +42,54 @@ const FeaturedRow: React.FC<FeaturedRowProps> = ({ id, title, description, key }
         className="pt-4"
       >
         {/* Restaurant Cards */}
-        <RestaurantCard />
+        <RestaurantCard
+          id={1}
+          imgUrl="http://links.papareact.com/gn7"
+          title="Restaurant 1"
+          rating={4.5}
+          genre="Thai"
+          address="Address 1"
+          shortDescription="Short description"
+          dishes={[]}
+          long={10}
+          lat={20}
+        />
+        <RestaurantCard
+          id={1}
+          imgUrl="http://links.papareact.com/gn7"
+          title="Restaurant 1"
+          rating={4.5}
+          genre="Thai"
+          address="Address 1"
+          shortDescription="Short description"
+          dishes={[]}
+          long={10}
+          lat={20}
+        />
+        <RestaurantCard
+          id={1}
+          imgUrl="http://links.papareact.com/gn7"
+          title="Restaurant 1"
+          rating={4.5}
+          genre="Thai"
+          address="Address 1"
+          shortDescription="Short description"
+          dishes={[]}
+          long={10}
+          lat={20}
+        />
+        <RestaurantCard
+          id={1}
+          imgUrl="http://links.papareact.com/gn7"
+          title="Restaurant 1"
+          rating={4.5}
+          genre="Thai"
+          address="Address 1"
+          shortDescription="Short description"
+          dishes={[]}
+          long={10}
+          lat={20}
+        />
       </ScrollView>
     </View>
   );
