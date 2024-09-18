@@ -9,6 +9,7 @@ import {
 } from 'react-native-heroicons/outline';
 import Category from '@/components/home/Category';
 import FeaturedRow from '@/components/home/FeaturedRow';
+import { useEffect, useState } from 'react';
 
 const featuresArr = [
   {
@@ -29,6 +30,14 @@ const featuresArr = [
 ];
 
 export default function HomeScreen() {
+  const [featuredCategories, setFeaturedCategories] = useState<any>([]);
+
+  useEffect(() => {
+    fetchFeaturedCategories();
+  }, []);
+
+  const fetchFeaturedCategories = () => {};
+
   return (
     <SafeAreaView className="bg-white pt-5">
       {/* Header */}
