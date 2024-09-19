@@ -10,6 +10,7 @@ import {
 import Category from '@/components/home/Category';
 import FeaturedRow from '@/components/home/FeaturedRow';
 import { useEffect, useState } from 'react';
+import sanityClient from './../../sanity';
 
 const featuresArr = [
   {
@@ -36,7 +37,25 @@ export default function HomeScreen() {
     fetchFeaturedCategories();
   }, []);
 
-  const fetchFeaturedCategories = () => {};
+  const fetchFeaturedCategories = () => {
+    sanityClient
+      .fetch(
+        `
+      *[_type == "featured"] {
+        ...,
+        restaurants[]->{
+        ...,
+        dishes[]->
+        }
+      }
+      `
+      )
+      .then((data: any) => {
+        setFeaturedCategories(data);
+      });
+  };
+
+  console.log('==== featuredCategories ===', featuredCategories);
 
   return (
     <SafeAreaView className="bg-white pt-5">
