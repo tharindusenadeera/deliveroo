@@ -93,8 +93,8 @@ export default function HomeScreen() {
         <Category />
 
         {/* Features */}
-        {featuresArr?.map((item: any, key: any) => {
-          return <FeaturedRow id={item?.id} title={item?.title} description={item?.description} key={key} />;
+        {featuredCategories?.map((item: any, key: any) => {
+          return <FeaturedRow id={item?._id} title={item?.name} description={item?.shortDescription} key={item?._id} />;
         })}
       </ScrollView>
     </SafeAreaView>
