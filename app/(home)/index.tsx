@@ -11,6 +11,7 @@ import Category from '@/components/home/Category';
 import FeaturedRow from '@/components/home/FeaturedRow';
 import { useEffect, useState } from 'react';
 import sanityClient from './../../sanity';
+import { getAllFeaturedPosts } from '@/constants/SanityQueries';
 
 const featuresArr = [
   {
@@ -38,21 +39,9 @@ export default function HomeScreen() {
   }, []);
 
   const fetchFeaturedCategories = () => {
-    sanityClient
-      .fetch(
-        `
-      *[_type == "featured"] {
-        ...,
-        restaurants[]->{
-        ...,
-        dishes[]->
-        }
-      }
-      `
-      )
-      .then((data: any) => {
-        setFeaturedCategories(data);
-      });
+    sanityClient.fetch(getAllFeaturedPosts).then((data: any) => {
+      setFeaturedCategories(data);
+    });
   };
 
   console.log('==== featuredCategories ===', featuredCategories);
