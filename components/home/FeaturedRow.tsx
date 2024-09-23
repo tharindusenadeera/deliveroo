@@ -1,6 +1,9 @@
 import { ScrollView, Text, View } from 'react-native';
 import { ArrowDownRightIcon, ArrowRightIcon } from 'react-native-heroicons/outline';
 import RestaurantCard from './RestaurantCard';
+import { useEffect, useState } from 'react';
+import sanityClient from '../../sanity';
+import { getFeaturedPost } from '@/constants/SanityQueries';
 
 interface FeaturedRowProps {
   id: number;
@@ -25,6 +28,20 @@ const restaurantArr = [
 ];
 
 const FeaturedRow: React.FC<FeaturedRowProps> = ({ id, title, description, key }) => {
+  const [restaurantArr, setRestaurantArr] = useState([]);
+
+  useEffect(() => {
+    getRestaurants();
+  }, []);
+
+  const getRestaurants = () => {
+    sanityClient.fetch(getFeaturedPost, { id }).then((data: any) => {
+      setRestaurantArr(data?.restaurants);
+    });
+  };
+
+  console.log('=== restaurantArr ===', restaurantArr, id);
+
   return (
     <View key={id}>
       <View className="flex-row items-center justify-between mt-4 px-4">
