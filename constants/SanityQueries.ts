@@ -6,12 +6,13 @@ export const getAllFeaturedPosts = `*[_type == "featured"] {
         }
       }`;
 
-export const getFeaturedPost = `*[_type == "featured && _id == "] {
+export const getFeaturedPost = `*[_type == "featured" && _id == $id] {
         ...,
         restaurants[]->{
         ...,
         dishes[]->,
         type-> {
             name
+            },
         }
     }[0]`;

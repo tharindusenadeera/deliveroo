@@ -31,6 +31,8 @@ const FeaturedRow: React.FC<FeaturedRowProps> = ({ id, title, description, key }
   const [restaurantArr, setRestaurantArr] = useState([]);
 
   useEffect(() => {
+    console.log('=== fired ===');
+
     getRestaurants();
   }, []);
 
