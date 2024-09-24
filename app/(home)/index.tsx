@@ -44,7 +44,7 @@ export default function HomeScreen() {
     });
   };
 
-  console.log('==== featuredCategories ===', featuredCategories);
+  // console.log('==== featuredCategories ===', featuredCategories);
 
   return (
     <SafeAreaView className="bg-white pt-5">
