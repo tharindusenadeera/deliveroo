@@ -31,8 +31,6 @@ const FeaturedRow: React.FC<FeaturedRowProps> = ({ id, title, description, key }
   const [restaurantArr, setRestaurantArr] = useState([]);
 
   useEffect(() => {
-    console.log('=== fired ===');
-
     getRestaurants();
   }, []);
 
@@ -41,8 +39,6 @@ const FeaturedRow: React.FC<FeaturedRowProps> = ({ id, title, description, key }
       setRestaurantArr(data?.restaurants);
     });
   };
-
-  console.log('=== restaurantArr ===', restaurantArr, id);
 
   return (
     <View key={id}>
@@ -61,54 +57,23 @@ const FeaturedRow: React.FC<FeaturedRowProps> = ({ id, title, description, key }
         className="pt-4"
       >
         {/* Restaurant Cards */}
-        <RestaurantCard
-          id={1}
-          imgUrl="http://links.papareact.com/gn7"
-          title="Restaurant 1"
-          rating={4.5}
-          genre="Thai"
-          address="Address 1"
-          shortDescription="Short description"
-          dishes={[]}
-          long={10}
-          lat={20}
-        />
-        <RestaurantCard
-          id={1}
-          imgUrl="http://links.papareact.com/gn7"
-          title="Restaurant 1"
-          rating={4.5}
-          genre="Thai"
-          address="Address 1"
-          shortDescription="Short description"
-          dishes={[]}
-          long={10}
-          lat={20}
-        />
-        <RestaurantCard
-          id={1}
-          imgUrl="http://links.papareact.com/gn7"
-          title="Restaurant 1"
-          rating={4.5}
-          genre="Thai"
-          address="Address 1"
-          shortDescription="Short description"
-          dishes={[]}
-          long={10}
-          lat={20}
-        />
-        <RestaurantCard
-          id={1}
-          imgUrl="http://links.papareact.com/gn7"
-          title="Restaurant 1"
-          rating={4.5}
-          genre="Thai"
-          address="Address 1"
-          shortDescription="Short description"
-          dishes={[]}
-          long={10}
-          lat={20}
-        />
+        {restaurantArr?.map((item: any, key: any) => {
+          return (
+            <RestaurantCard
+              key={item?._id}
+              id={item?._id}
+              imgUrl={item?.image}
+              title={item?.name}
+              rating={item?.rating}
+              genre={item?.type?.name}
+              address={item?.address}
+              shortDescription={item?.shortDescription}
+              dishes={item?.dishes}
+              long={10}
+              lat={20}
+            />
+          );
+        })}
       </ScrollView>
     </View>
   );
