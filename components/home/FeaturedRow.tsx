@@ -12,21 +12,6 @@ interface FeaturedRowProps {
   key: any;
 }
 
-const restaurantArr = [
-  {
-    id: 1,
-    imgUrl: 'http://links.papareact.com/gn7',
-    title: 'Restaurant 1',
-    rating: 4.5,
-    genre: 'Thai',
-    address: 'Address 1',
-    shortDescription: 'Short description',
-    dishes: [],
-    long: null,
-    lat: null,
-  },
-];
-
 const FeaturedRow: React.FC<FeaturedRowProps> = ({ id, title, description, key }) => {
   const [restaurantArr, setRestaurantArr] = useState([]);
 

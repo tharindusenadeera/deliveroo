@@ -16,3 +16,5 @@ export const getFeaturedPost = `*[_type == "featured" && _id == $id] {
             },
         }
     }[0]`;
+
+export const getCategories = `*[_type == "category"]`;
