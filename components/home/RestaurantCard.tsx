@@ -1,4 +1,5 @@
 import { urlFor } from '@/sanity';
+import { useRouter } from 'expo-router';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { MapPinIcon } from 'react-native-heroicons/outline';
 import { StarIcon } from 'react-native-heroicons/solid';
@@ -28,8 +29,17 @@ const RestaurantCard: React.FC<RestaurantCard> = ({
   long = null,
   lat = null,
 }) => {
+  const router = useRouter();
   return (
-    <TouchableOpacity className="bg-white mr-3 shadow">
+    <TouchableOpacity
+      className="bg-white mr-3 shadow"
+      onPress={() =>
+        router.push({
+          pathname: '/Restaurant',
+          params: { id, imgUrl, title, rating, genre, address, shortDescription, dishes, long, lat }, // Pass props as query params
+        })
+      }
+    >
       <Image
         source={{
           uri: urlFor(imgUrl).url(),
