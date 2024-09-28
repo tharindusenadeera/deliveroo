@@ -30,13 +30,26 @@ const RestaurantCard: React.FC<RestaurantCard> = ({
   lat = null,
 }) => {
   const router = useRouter();
+  // console.log('=== imgUrl ===', imgUrl);
+
   return (
     <TouchableOpacity
       className="bg-white mr-3 shadow"
       onPress={() =>
         router.push({
           pathname: '/Restaurant',
-          params: { id, imgUrl, title, rating, genre, address, shortDescription, dishes, long, lat }, // Pass props as query params
+          params: {
+            id,
+            imgUrl: JSON.stringify(imgUrl),
+            title,
+            rating,
+            genre,
+            address,
+            shortDescription,
+            dishes,
+            long,
+            lat,
+          }, // Pass props as query params
         })
       }
     >

@@ -6,11 +6,7 @@ import { Header } from 'react-native/Libraries/NewAppScreen';
 export default function RestaurantLayout() {
   const router = useRouter();
   return (
-    <Stack
-      screenOptions={{
-        headerLeft: () => <Text onPress={() => router.back()}>Back</Text>,
-      }}
-    >
+    <Stack screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Restaurant" />
     </Stack>
   );
