@@ -1,8 +1,10 @@
 import { SafeAreaView, ScrollView, Text, View, Image, TouchableOpacity } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { urlFor } from '@/sanity';
-import { ArrowLeftIcon, MapPinIcon, StarIcon } from 'react-native-heroicons/solid';
+import { ArrowLeftIcon, ChevronRightIcon, MapPinIcon, StarIcon } from 'react-native-heroicons/solid';
 import { Colors } from '@/constants/Colors';
+import { QuestionMarkCircleIcon } from 'react-native-heroicons/outline';
+import DishRow from '@/components/restaurant/DishRow';
 
 export default function RestaurantScreen() {
   const { id, imgUrl, title, rating, genre, address, shortDescription, dishes, long, lat } = useLocalSearchParams();
@@ -10,6 +12,9 @@ export default function RestaurantScreen() {
 
   // Parse the JSON string back to an object
   const parsedImgUrl = imgUrl ? JSON.parse(imgUrl as string) : null;
+  const parsedDishes = dishes ? JSON.parse(dishes as string) : [];
+
+  // console.log('=== dishes ===', JSON.stringify(dishes, null, 2));
 
   return (
     <ScrollView>
@@ -42,6 +47,27 @@ export default function RestaurantScreen() {
           </View>
           <Text className="text-gray-500 mt-2 pb-4">{shortDescription}</Text>
         </View>
+
+        <TouchableOpacity className="flex-row items-center space-x-2 p-4 border-y border-gray-300">
+          <QuestionMarkCircleIcon color="gray" opacity={0.6} size={22} />
+          <Text className="pl-2 flex-1 text-md font-bold">Have a food allergy?</Text>
+          <ChevronRightIcon color={Colors?.light?.defaultColor} />
+        </TouchableOpacity>
+      </View>
+      <View>
+        <Text className="px-4 pt-6 mb-3 font-bold text-xl">Menu</Text>
+        {parsedDishes?.map((item: any, key: any) => {
+          return (
+            <DishRow
+              id={item?._id}
+              key={item?._id}
+              name={item?.name}
+              description={item?.shortDescription}
+              price={item?.price}
+              image={item?.image}
+            />
+          );
+        })}
       </View>
     </ScrollView>
   );
