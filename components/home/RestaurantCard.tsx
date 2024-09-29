@@ -46,7 +46,7 @@ const RestaurantCard: React.FC<RestaurantCard> = ({
             genre,
             address,
             shortDescription,
-            dishes,
+            dishes: JSON.stringify(dishes),
             long,
             lat,
           }, // Pass props as query params
