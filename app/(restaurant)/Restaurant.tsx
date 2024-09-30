@@ -56,7 +56,7 @@ export default function RestaurantScreen() {
       </View>
       <View>
         <Text className="px-4 pt-6 mb-3 font-bold text-xl">Menu</Text>
-        {parsedDishes?.map((item: any, key: any) => {
+        {/* {parsedDishes?.map((item: any, key: any) => {
           return (
             <DishRow
               id={item?._id}
@@ -67,7 +67,7 @@ export default function RestaurantScreen() {
               image={item?.image}
             />
           );
-        })}
+        })} */}
       </View>
     </ScrollView>
   );
