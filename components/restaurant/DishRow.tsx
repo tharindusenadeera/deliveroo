@@ -1,6 +1,6 @@
 import { Text, TouchableOpacity, View } from 'react-native';
 
-export default function DishRow({ id, name, description, price, image }: any) {
+export default function DishRow({ id, name, description, price, image, key }: any) {
   return (
     <TouchableOpacity>
       <View>
